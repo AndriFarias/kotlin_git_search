@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.igorbag.githubsearch.R
 import br.com.igorbag.githubsearch.data.GitHubService
@@ -33,7 +34,12 @@ class MainActivity : AppCompatActivity() {
         setupView()
         showUserName()
         setupRetrofit()
+        setupRecyclerView()
         setupListeners()
+    }
+    fun setupRecyclerView() {
+        listaRepositories = findViewById(R.id.rv_lista_repositories) // Substitua "lista_repositories" pelo ID correto em seu layout
+        listaRepositories.layoutManager = LinearLayoutManager(this)
     }
 
     // Metodo responsavel por realizar o setup da view e recuperar os Ids do layout
